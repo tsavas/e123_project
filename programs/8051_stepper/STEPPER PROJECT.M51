@@ -1,0 +1,324 @@
+LX51 CODE BANKING LINKER/LOCATOR V05.01.29                                     05/01/20  17:48:24
+MS-DOS LX51 CODE BANKING LINKER/LOCATOR V05.01.29,  INVOKED BY:
+C:\RIDE\BIN\lx51.exe "C:\Users\Timothy Savas\Desktop\Stepper Project\servo_test_410_3.obj"  TO( "&
+C:\Users\Timothy Savas\Desktop\Stepper Project\Stepper Project" ) RS(256) PL(68) PW(78) LIBPATH(C&
+:\RIDE\lib) 
+
+
+INPUT MODULES INCLUDED
+  C:\USERS\TIMOTHY SAVAS\DESKTOP\STEPPER PROJECT\SERVO_TEST_410_3.OBJ(SERVO_T&
+EST_410_3)
+
+
+LINK MAP OF MODULE: C:\USERS\TIMOTHY SAVAS\DESKTOP\STEPPER PROJECT\STEPPER PR&
+OJECT (STEPPER PROJECT)
+
+    TYPE     BASE       LENGTH    RELOCATION     SEGMENT NAME
+    ----     ----       ------    ----------     ------------
+
+    * * * * * * *   DATA/IDATA    M E M O R Y   * * * * * * *
+    REG      0000H      0008H     ABSOLUTE       "REG BANK 0"
+
+    * * * * * * *   CODE          M E M O R Y   * * * * * * *
+    CODE     0000H      0002H     ABSOLUTE       
+             0002H      0001H                    *** GAP ***
+    CODE     0003H      000BH     ABSOLUTE       
+             000EH      001DH                    *** GAP ***
+    CODE     002BH      0005H     ABSOLUTE       
+             0030H      0050H                    *** GAP ***
+    CODE     0080H      003AH     ABSOLUTE       
+
+EXECUTABLE SUMMARY:
+-------------------
+    Total INTERNAL RAM storage requirement:  0008H (8)
+    Total EXTERNAL RAM storage requirement:  0000H (0)
+    Total     CODE     storage requirement:  004CH (76)
+Note:  Summary does not include dynamic stack requirements
+
+
+REFERENCE MAP OF MODULE: C:\USERS\TIMOTHY SAVAS\DESKTOP\STEPPER PROJECT\STEPPER PROJECT (STEPPER PROJECT)
+
+SEGMENT                           BI_GROUP            DT_GROUP             ID_GROUP             XD_GROUP
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH     START    LENGTH     START    LENGTH
+--------------------------------------------------------------------------------------
+
+SYMBOL TABLE FOR C:\USERS\TIMOTHY SAVAS\DESKTOP\STEPPER PROJECT\STEPPER PROJE&
+CT(SERVO_TEST_410_3)
+-----------------------------------------------------------------------------&
+---------------------
+
+    VALUE              TYPE               NAME
+    -----              ----               ----
+
+	-------            MODULE             SERVO_TEST_410_3
+	B:00EDH            SYMBOL             AD0INT
+	B:00DCH            SYMBOL             CCF4
+	D:00C6H            SYMBOL             ADC0LTH
+	D:00BEH            SYMBOL             ADC0H
+	D:00AFH            SYMBOL             ONESHOT
+	D:0099H            SYMBOL             SBUF0
+	D:0082H            SYMBOL             DPL
+	D:0080H            SYMBOL             P0
+	B:00DDH            SYMBOL             CCF5
+	B:00AEH            SYMBOL             ESPI0
+	D:00EFH            SYMBOL             RSTSRC
+	D:00BCH            SYMBOL             ADC0CF
+	D:0090H            SYMBOL             P1
+	D:0086H            SYMBOL             CRC0DAT
+	B:00CCH            SYMBOL             TF2CEN
+	D:00F0H            SYMBOL             B
+	D:00D7H            SYMBOL             P0MAT
+LX51 CODE BANKING LINKER/LOCATOR V05.01.29                 05/01/20  17:48:24
+
+	D:00AEH            SYMBOL             RTC0KEY
+	D:00A0H            SYMBOL             P2
+	D:0023H            SYMBOL             SERIAL0VECTOR
+	B:00EEH            SYMBOL             BURSTEN
+	D:00CFH            SYMBOL             P1MAT
+	D:00C0H            SYMBOL             SMB0CN
+	D:0098H            SYMBOL             SCON0
+	D:0081H            SYMBOL             SP
+	D:0063H            SYMBOL             WATCHDOGVECTOR
+	D:003BH            SYMBOL             SERIAL1VECTOR
+	D:000BH            SYMBOL             TIMER0VECTOR
+	B:00D6H            SYMBOL             AC
+	D:00E6H            SYMBOL             EIE1
+	D:00C5H            SYMBOL             ADC0LTL
+	D:00BDH            SYMBOL             ADC0L
+	D:0033H            SYMBOL             POWFAILVECTOR
+	D:006BH            SYMBOL             RTCLOCKVECTOR
+	D:001BH            SYMBOL             TIMER1VECTOR
+	B:00D2H            SYMBOL             OV
+	B:009DH            SYMBOL             MCE0
+	D:00E7H            SYMBOL             EIE2
+	D:002BH            SYMBOL             TIMER2VECTOR
+	B:00FDH            SYMBOL             MODF
+	B:00AFH            SYMBOL             EA
+	D:00B0H            SYMBOL             P0ODEN
+	D:0097H            SYMBOL             IDA0H
+	D:008FH            SYMBOL             PSCTL
+	C:0095H            SYMBOL             TIMER_INITS
+	D:00F5H            SYMBOL             IDA1H
+	D:00E4H            SYMBOL             IT01CF
+	D:00E0H            SYMBOL             ACC
+	B:00EFH            SYMBOL             AD0EN
+	B:00C5H            SYMBOL             STA
+	B:00ACH            SYMBOL             ES0
+	B:009FH            SYMBOL             S0MODE
+	D:00FFH            SYMBOL             VDM0CN
+	D:00F1H            SYMBOL             P0MDIN
+	D:00ABH            SYMBOL             CLKMUL
+	D:009DH            SYMBOL             CPT0MD
+	D:009BH            SYMBOL             CPT0CN
+	B:00DFH            SYMBOL             CF
+	B:00A9H            SYMBOL             ET0
+	D:00F2H            SYMBOL             P1MDIN
+	D:00E8H            SYMBOL             ADC0CN
+	D:00A4H            SYMBOL             P0MDOUT
+	D:009CH            SYMBOL             CPT1MD
+	D:009AH            SYMBOL             CPT1CN
+	C:0086H            SYMBOL             STUCK
+	B:00ABH            SYMBOL             ET1
+	B:008DH            SYMBOL             TF0
+	D:00F3H            SYMBOL             P2MDIN
+	D:00A5H            SYMBOL             P1MDOUT
+	D:0096H            SYMBOL             IDA0L
+	B:00CDH            SYMBOL             TF2LEN
+	B:00ADH            SYMBOL             ET2
+	B:0098H            SYMBOL             RI0
+	B:008FH            SYMBOL             TF1
+	D:00F4H            SYMBOL             IDA1L
+	D:00CBH            SYMBOL             TMR2RLH
+	D:00C2H            SYMBOL             SMB0DAT
+	D:00A6H            SYMBOL             P2MDOUT
+	B:00C7H            SYMBOL             MASTER
+	B:00BEH            SYMBOL             PSPI0
+	D:00FAH            SYMBOL             PCA0H
+	D:00C7H            SYMBOL             P0MASK
+	D:00A1H            SYMBOL             SPI0CFG
+	D:0093H            SYMBOL             TMR3RLH
+	D:008CH            SYMBOL             TH0
+LX51 CODE BANKING LINKER/LOCATOR V05.01.29                 05/01/20  17:48:24
+
+	B:00A8H            SYMBOL             EX0
+	B:0099H            SYMBOL             TI0
+	B:0088H            SYMBOL             IT0
+	D:00F8H            SYMBOL             SPI0CN
+	D:00CDH            SYMBOL             TMR2H
+	D:00BFH            SYMBOL             P1MASK
+	D:008DH            SYMBOL             TH1
+	C:002BH            SYMBOL             ISR
+	D:0003H            SYMBOL             INT0VECTOR
+	B:00AAH            SYMBOL             EX1
+	B:008AH            SYMBOL             IT1
+	D:00B1H            SYMBOL             OSCXCN
+	D:00A8H            SYMBOL             IE
+	D:0095H            SYMBOL             TMR3H
+	D:008EH            SYMBOL             CKCON
+	D:0013H            SYMBOL             INT1VECTOR
+	B:00F9H            SYMBOL             TXBMT
+	B:00FCH            SYMBOL             RXOVRN
+	B:00C1H            SYMBOL             ACK
+	D:00FCH            SYMBOL             PCA0CPH0
+	D:00F6H            SYMBOL             EIP1
+	D:00CAH            SYMBOL             TMR2RLL
+	D:00B9H            SYMBOL             IDA0CN
+	D:0043H            SYMBOL             INT2VECTOR
+	B:00D0H            SYMBOL             P
+	D:00F9H            SYMBOL             PCA0L
+	D:00F7H            SYMBOL             EIP2
+	D:00EAH            SYMBOL             PCA0CPH1
+	D:00B5H            SYMBOL             IDA1CN
+	D:00ACH            SYMBOL             RTC0ADR
+	D:0092H            SYMBOL             TMR3RLL
+	D:008AH            SYMBOL             TL0
+	D:0087H            SYMBOL             PCON
+	D:004BH            SYMBOL             INT3VECTOR
+	B:00C6H            SYMBOL             TXMODE
+	D:00ECH            SYMBOL             PCA0CPH2
+	D:00CCH            SYMBOL             TMR2L
+	D:008BH            SYMBOL             TL1
+	D:0053H            SYMBOL             INT4VECTOR
+	B:00FFH            SYMBOL             SPIF
+	B:00EAH            SYMBOL             AD0LJST
+	B:00C9H            SYMBOL             T2RCLK
+	B:00CBH            SYMBOL             T2SPLIT
+	B:00C3H            SYMBOL             ACKRQ
+	D:00EEH            SYMBOL             PCA0CPH3
+	D:00ADH            SYMBOL             RTC0DAT
+	D:0094H            SYMBOL             TMR3L
+	C:0080H            SYMBOL             STARTUP
+	D:005BH            SYMBOL             INT5VECTOR
+	B:00BCH            SYMBOL             PS0
+	D:00FEH            SYMBOL             PCA0CPH4
+	D:00FBH            SYMBOL             PCA0CPL0
+	D:00DFH            SYMBOL             CRC0FLIP
+	B:00CFH            SYMBOL             TF2H
+	B:00B9H            SYMBOL             PT0
+	D:00E9H            SYMBOL             PCA0CPL1
+	D:00DAH            SYMBOL             PCA0CPM0
+	D:00D3H            SYMBOL             PCA0CPH5
+	D:00B6H            SYMBOL             FLSCL
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	B:00FAH            SYMBOL             NSSMD0
+	B:00FEH            SYMBOL             WCOL
+	B:00E8H            SYMBOL             AD0CM0
+	B:00DEH            SYMBOL             CR
+	B:00D3H            SYMBOL             RS0
+	B:00BBH            SYMBOL             PT1
+	B:009CH            SYMBOL             REN0
+LX51 CODE BANKING LINKER/LOCATOR V05.01.29                 05/01/20  17:48:24
+
+	D:00EBH            SYMBOL             PCA0CPL2
+	D:00DBH            SYMBOL             PCA0CPM1
+	D:00D9H            SYMBOL             PCA0MD
+	D:00D8H            SYMBOL             PCA0CN
+	D:00A3H            SYMBOL             SPI0DAT
+	B:00FBH            SYMBOL             NSSMD1
+	B:00E9H            SYMBOL             AD0CM1
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:00C4H            SYMBOL             STO
+	B:00BDH            SYMBOL             PT2
+	B:008CH            SYMBOL             TR0
+	D:00EDH            SYMBOL             PCA0CPL3
+	D:00DCH            SYMBOL             PCA0CPM2
+	D:00C8H            SYMBOL             TMR2CN
+	B:00EBH            SYMBOL             AD0WINT
+	B:00D1H            SYMBOL             F1
+	B:00C2H            SYMBOL             ARBLOST
+	B:008EH            SYMBOL             TR1
+	D:00FDH            SYMBOL             PCA0CPL4
+	D:00DDH            SYMBOL             PCA0CPM3
+	D:00D4H            SYMBOL             P0SKIP
+	D:00BAH            SYMBOL             ADC0TK
+	D:0091H            SYMBOL             TMR3CN
+	B:00ECH            SYMBOL             AD0BUSY
+	B:00C8H            SYMBOL             T2XCLK
+	B:00CAH            SYMBOL             TR2
+	B:00CEH            SYMBOL             TF2L
+	B:00B8H            SYMBOL             PX0
+	D:00DEH            SYMBOL             PCA0CPM4
+	D:00D5H            SYMBOL             P1SKIP
+	D:00D2H            SYMBOL             PCA0CPL5
+	B:00BAH            SYMBOL             PX1
+	D:00D6H            SYMBOL             P2SKIP
+	D:00CEH            SYMBOL             PCA0CPM5
+	D:00B8H            SYMBOL             IP
+	D:0084H            SYMBOL             CRC0CN
+	C:0088H            SYMBOL             USUAL_SETUP
+	D:00D0H            SYMBOL             PSW
+	C:00A8H            SYMBOL             INT_SETUP
+	D:00C4H            SYMBOL             ADC0GTH
+	D:00C1H            SYMBOL             SMB0CF
+	D:00B7H            SYMBOL             FLKEY
+	B:00D8H            SYMBOL             CCF0
+	B:00D7H            SYMBOL             CY
+	B:00C0H            SYMBOL             SI
+	B:009AH            SYMBOL             RB80
+	D:00E3H            SYMBOL             PFE0CN
+	D:00E1H            SYMBOL             XBR0
+	D:00AAH            SYMBOL             EMI0CN
+	D:00A2H            SYMBOL             SPI0CKR
+	D:009FH            SYMBOL             CPT0MX
+	D:0083H            SYMBOL             DPH
+	B:00D9H            SYMBOL             CCF1
+	D:00E2H            SYMBOL             XBR1
+	D:00BBH            SYMBOL             ADC0MX
+	D:00B3H            SYMBOL             OSCICL
+	D:009EH            SYMBOL             CPT1MX
+	C:0003H            SYMBOL             ISR0
+	B:00DAH            SYMBOL             CCF2
+	B:009BH            SYMBOL             TB80
+	B:0089H            SYMBOL             IE0
+	D:00D1H            SYMBOL             REF0CN
+	D:00A9H            SYMBOL             CLKSEL
+	B:00F8H            SYMBOL             SPIEN
+	B:00DBH            SYMBOL             CCF3
+	B:008BH            SYMBOL             IE1
+	D:00C9H            SYMBOL             REG0CN
+LX51 CODE BANKING LINKER/LOCATOR V05.01.29                 05/01/20  17:48:24
+
+	D:00C3H            SYMBOL             ADC0GTL
+	D:00B2H            SYMBOL             OSCICN
+	D:0085H            SYMBOL             CRC0IN
+	C:0000H            LINE#              24
+	C:0080H            LINE#              27
+	C:0082H            LINE#              28
+	C:0084H            LINE#              29
+	C:0086H            LINE#              31
+	C:0088H            LINE#              36
+	C:008BH            LINE#              39
+	C:008EH            LINE#              40
+	C:0091H            LINE#              43
+	C:0094H            LINE#              44
+	C:0095H            LINE#              47
+	C:0098H            LINE#              49
+	C:009BH            LINE#              51
+	C:009EH            LINE#              52
+	C:00A1H            LINE#              54
+	C:00A4H            LINE#              55
+	C:00A7H            LINE#              56
+	C:00A8H            LINE#              60
+	C:00AAH            LINE#              61
+	C:00ACH            LINE#              63
+	C:00AEH            LINE#              64
+	C:00B0H            LINE#              67
+	C:00B2H            LINE#              68
+	C:00B4H            LINE#              69
+	C:00B7H            LINE#              71
+	C:00B9H            LINE#              75
+	C:002BH            LINE#              83
+	C:002DH            LINE#              84
+	C:002FH            LINE#              85
+	C:0003H            LINE#              91
+	C:0005H            LINE#              92
+	C:0007H            LINE#              93
+	C:0009H            LINE#              94
+	C:000BH            LINE#              95
+	C:000DH            LINE#              97
+	-------            ENDMOD             SERVO_TEST_410_3
+
+LINK/LOCATE RUN COMPLETE,  NO ERROR FOUND.
+

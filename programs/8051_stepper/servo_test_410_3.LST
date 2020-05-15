@@ -1,0 +1,122 @@
+MACRO ASSEMBLER SERVO_TEST_410_3                            05/01/20 17:48:24 PAGE     1
+
+
+DOS MACRO ASSEMBLER MA51 V06.04.19OBJECT MODULE PLACED IN servo_test_410_3.OBJ
+ASSEMBLER INVOKED BY: DEBUG EP QUIET PIN(C:\SILABS\MCU\INC;C:\RIDE\INC;C:\RIDE\INC\51) 
+
+LOC     OBJ           LINE    SOURCE
+                         1     ; timer2_biflip.a51	use Timer2 to toggle LED, on interrupt by timer overflow
+                         2     
+                         3     	$NOSYMBOLS													; keeps listing short
+                         4     	$INCLUDE (C:\RIDE\INC\51\SILABS\C8051F410.INC)  
+                       265     
+                       266     	$INCLUDE (C:\SILABS\VECTORS320.INC)	; Tom's vectors definition file
+  0080                 290     	STACKBOT EQU 80H					; put stack at start of scratch
+  00DF                 291     	DIV12 EQU 0DFH						; timer clock mask to div by 12, in CKCON
+                       292     
+  00AF                 293     	GLOBALINTEN EQU EA				; global interrupt enable
+  00AD                 294     	TIM2INTEN EQU IE.5
+  00CA                 295     	TIM2_ENABLE EQU TMR2CN.2
+  0000                 296     	SOFTFLAG EQU 0						; software flag that ISR uses to talk to Main
+  0080                 297     	BLUE_LED EQU P0.0					; LED to toggle
+                       298     	
+  00FF                 299     	 HITIME SET 0FFH	; set start count close to the overflow val
+  00F0                 300     	 LOTIME SET 0F0H	;  ...and this is the low byte
+                       301     
+                       302     ; port use:
+                       303     ; 	LED at P0.0
+                       304     	
+  0000                 305     	ORG 0
+                       306     
+0000    807E           307               SJMP STARTUP
+                       308     	
+  0080                 309     	ORG 80H
+0080    1188           310     STARTUP:  ACALL USUAL_SETUP
+0082    1195           311               ACALL TIMER_INITS
+0084    11A8           312               ACALL INT_SETUP
+                       313     	
+0086    80FE           314     STUCK: 	SJMP STUCK	; await interrupts.  All the action is there
+                       315     	
+                       316     	
+                       317     ;------- INITIALIZATIONS
+                       318     
+0088    53D9BF         319     USUAL_SETUP:  ANL   PCA0MD, #NOT(040H)        ; Disable the WDT.
+                       320                                                  ; Clear Watchdog Enable bit
+                       321     				; Configure the Oscillator
+008B    43B204         322               ORL   OSCICN, #04H         ; sysclk = 24.5 Mhz / 8
+008E    75A401         323     					MOV  P0MDOUT,   #001H
+                       324     
+                       325              ; Enable the Port I/O Crossbar
+0091    75E240         326               MOV   XBR1, #40H           ; Enable Crossbar
+0094    22             327               RET
+                       328     						
+                       329     TIMER_INITS: 
+0095    538EDF         330     ANL CKCON , # 223 
+                       331     
+0098    75C804         332               MOV TMR2CN, #04H		; enable timer 2, and 16-bit auto-reload
+                       333     	
+009B    75CDFF         334     MOV TMR2H , # 255 
+009E    75CCF0         335     MOV TMR2L , # 240 
+                       336     	
+00A1    75CBFF         337               MOV TMR2RLH, #0FFH		; reload values (at first, close to ovflw value)
+00A4    75CA60         338               MOV TMR2RLL, #060H
+00A7    22             339               RET
+                       340     	
+                       341     ; ----NOW ENABLE INTERRUPTS----
+                       342     INT_SETUP: 
+00A8    D2AD           343     SETB 173 
+00AA    D2AF           344     SETB 175 
+                       345     
+00AC    D288           346     					SETB IT0		; make INT0 Edge-sensitive	(p. 22)
+00AE    D28A           347       				SETB IT1		; ditto for INT1
+                       348     					;  setb PX1		; you can try giving higher priority to INT1 (SFR "IP0", p. 25 of user's guide);
+                       349     					;                   name is from RIDE list, "IP"...
+00B0    D2A8           350       				SETB EX0		; ...and enable INT0
+00B2    D2AA           351       				SETB EX1		; ...and INT1
+00B4    75E475         352     					MOV IT01CF, #75H	; SiLabs special: makes both interrupts active-low, places them at P0.7, P0.5
+                       353     					;mov IT01CF, #01h
+00B7    D2AF           354       				SETB EA		; Global int enable        (pp.31-32)
+                       355     	
+                       356     
+                       357     
+00B9    22             358               RET
+                       359     
+                       360     
+                       361     ; --- INTERRUPT RESPONSE ---
+                       362     ; ISR: JUST TOGGLE LED
+                       363     
+  002B                 364     	ORG TIMER2VECTOR
+                       365     
+002B    B280           366     ISR:  CPL 128 
+002D    C2CF           367               CLR TF2H		; Clear timer-2 overflow flag (does this clear interrupt flag?)
+002F    32             368               RETI	 
+                       369     
+  0003                 370     ORG INT0VECTOR				; this is defined in VECTORS3210.INC, included above.
+                       371     									;  It is address 03h, the address to which micro hops
+                       372     									;   in response to interrupt ZERO
+                       373     ISR0: 	
+0003    C0E0           374     			PUSH ACC
+0005    E5CA           375     			MOV A, TMR2RLL
+0007    241A           376     			ADD A, #1AH
+0009    F5CA           377     			MOV TMR2RLL, A
+000B    D0E0           378     			POP ACC
+                       379     
+000D    32             380     		RETI	
+                       381     
+                       382     
+                       383     		  END						
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)
